@@ -4,19 +4,19 @@ import { SampleScene } from './scenes/sample_scene';
 const gameConfig: Phaser.Types.Core.GameConfig = {
     title: 'Hello TS World',
     type: Phaser.AUTO,
-    
+
     scale: {
-        width: window.innerWidth,
-        height: window.innerHeight,
+        width:480,
+        height: 320,
     },
-    
+
     physics: {
         default: 'arcade',
         arcade: {
             debug: true,
         },
     },
-    
+
     transparent: true,
     parent: 'game_container',
     scene:  SampleScene,
