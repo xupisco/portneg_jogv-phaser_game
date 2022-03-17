@@ -1,3 +1,5 @@
+import { Player } from "../props/player";
+
 const sceneConfig: Phaser.Types.Scenes.SettingsConfig = {
     active: false,
     visible: false,
@@ -6,7 +8,7 @@ const sceneConfig: Phaser.Types.Scenes.SettingsConfig = {
 
 export class SampleScene extends Phaser.Scene {
 
-    private player: Phaser.Physics.Arcade.Sprite & { body: Phaser.Physics.Arcade.Body };
+    private player: Player;
     private score: integer = 0;
     private score_label: Phaser.GameObjects.Text;
     private coin_good: Phaser.Physics.Arcade.Sprite & { body: Phaser.Physics.Arcade.Body };
@@ -45,7 +47,7 @@ export class SampleScene extends Phaser.Scene {
         const ground = map.createLayer(3, tiles, 0, 0)
         ground.setCollisionByExclusion([-1], true);
 
-        this.player = this.physics.add.sprite(30, 50, 'player')
+        this.player = new Player(this, 30, 50, 'player', 0);
         this.player.setBounce(0.1);
         this.player.setGravityY(1000);
         this.player.setCollideWorldBounds(true);
